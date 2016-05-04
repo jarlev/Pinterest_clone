@@ -1,0 +1,18 @@
+<h1 id="notice"><strong>Pins</strong><%= notice %></h1><br>
+
+<div class="container">
+		<div class="card-deck-wrapper">
+		  <div class="card-deck">
+		    <div class="card">
+		    	<%= image_tag @pin.image.url(:index), class: "card-img-top" %>
+		      <div class="card-block">
+		        <h4 class="card-title"><%= @pin.title %></h4>
+		        <p class="card-text"><%= @pin.description %></p>
+		        <p class="card-text"><small class="text-muted">Pinned at: <%= local_time(@pin.created_at) %></small></p>
+		      </div>
+		    </div>
+		</div>
+
+		<br><p><%= link_to 'Edit', edit_pin_path(@pin) %></p>
+		<br><p><%= link_to 'Back', pins_path(@pin) %></p>
+</div>

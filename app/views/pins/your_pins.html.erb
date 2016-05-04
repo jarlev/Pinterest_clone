@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header text-center">
+  <h1>Your Pins</h1>
+</div>
+
+<div class='container'>
+  <% current_user.pins.each do |pin| %>
+    <div class="well well-lg">
+      <h3><%= link_to pin.title, pin %></h3>
+      <p>author: <%= pin.user.username %></p>
+      <p>published: <%= local_time(pin.created_at) %></p>
+      <%= link_to 'Edit', edit_pin_path(pin) %>
+      <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>
+</div>
+<br>
+
+<%= link_to 'New Pin', new_pin_path %>
